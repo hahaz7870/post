@@ -1,0 +1,53 @@
+{% extends 'layouts/main.njk' %}
+
+{% block body %}
+  <main>
+
+    <input class="start_imput" type="text">
+    <button class="button_create">Создать пост</button>
+
+    <p class="komment">Список Постов</p>
+        <div class="commit">
+        {% for post in posts %}
+                <div class="one">
+                <h3>{{ post.title }}</h3>
+                <p>Автор: {{ post.author }}</p>
+                <p>{{ post.body }}</p>
+                <button  class="button_open">Открыть</button>
+                <button  class="button_open">Удалить</button>
+                </div>
+            </div>
+        {% endfor %}
+    <div>
+
+    <div class="popup__bg">
+        <form class="popup">
+            <button class="close-popup">&times;</button>
+            <label>
+                <input type="text" name="author">
+                <div class="label__text">
+                    Ваше имя
+                </div>
+            </label>
+            <label>
+                <input type="text" name="name">
+                <div class="label__text">
+                    Название
+                </div>
+            </label>
+            <label>
+                <input type="tel" name="tel">
+                <div class="label__text">
+                    Текст поста
+                </div>
+            </label>
+            <button type="submit">Добавить пост</button>
+        </form>
+    </div>
+
+
+  </main>
+  <script src="static/js/post.js"></script>
+
+{% endblock %}
+
